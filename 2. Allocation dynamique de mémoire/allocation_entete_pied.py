@@ -109,10 +109,10 @@ def liberer(p):
     # vérifier que p est bien une portion
     p_tmp = 4
     while p_tmp < p:
-        p_tmp += lire_taille(p) + 2
+        p_tmp += lire_taille(p_tmp) + 2
         if p_tmp > p:
             # on a dépassé p sans y passer donc p n'est pas un début de portion
-            return
+            return "p n'est pas un début de portion valable"
 
     # libérer la portion: modif entete et pdp
     t_p = lire_taille(p)
@@ -122,14 +122,23 @@ def liberer(p):
     if est_libre(p_suivante):
         t_suivante = lire_taille(p_suivante)
         marque_reservee(p, t_suivante + 2 + t_p)
-        return "ok"
+        marque_libre(p, t_suivante + 2 + t_p)
     # regarder si precedente libre: si oui on modifie sa taille en ajoutant la taille de la portion liberee (qui aura on pas été ajouté)
     if precedent_est_libre(p):
         t_precedente = lire_taille_precedent(p)
         marque_reservee(p - 2 - t_precedente, t_precedente + 2 + lire_taille(p))
-        return "ok"
+        marque_libre(p - 2 - t_precedente, t_precedente + 2 + lire_taille(p))
+        p -= 2 + t_precedente
 
-    return "ok"
+    # si la portion suivante est l'épilogue, on le rapproche
+    if lire_position_epilogue() == p + lire_taille(p) + 2:
+        ecrire_position_epilogue(p)
+        ecrire(p, 0, 1)
+        ecrire(p, -1, 1)
+        for i in range(1, TAILLE_MEM - p):
+            ecrire(p, i, 0)
+
+    return "portion {} libérée".format(p)
 
 
 mem = demarrage_entete()
@@ -143,6 +152,10 @@ print(mem)
 # la mémoire est trop petite pour cette allocation donc ça n'alloue pas
 reserver(14, "u")
 print()
+print(mem)
+print(liberer(18))
+print(mem)
+print(liberer(4))
 print(mem)
 print(liberer(12))
 print(mem)
