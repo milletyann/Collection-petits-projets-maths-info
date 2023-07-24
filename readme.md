@@ -2,7 +2,7 @@
 
 Ce dépôt recense un certain nombre de petits projets qui ne méritent pas leur propre dépôt. Ils sont principalement issus de sujets de concours (Informatique en prépa MP) mais aussi d'implémentation personnelle ayant servi de mise en pratique de cours que j'ai suivis. Ce dépôt voit le jour car je trie et nettoie mes anciens codes, voici une liste des projets que j'ai traité ainsi que leur avancement quant à leur arrivée sur ce dépôt (vous les trouverez dans les dossiers de même nom).
 
-1. Piles et récursivité [color=#53D66C]**(Complet)**[/color]
+1. Piles et récursivité <span style="color:#53D66C;">**(Complet)**</span>
 2. Allocation dynamique de mémoire [color=#FF8531]**(En cours)**[/color]
 3. Marches (concrète, stochastique, auto-évitante) et mouvement brownien [color=#FF2B0D]**(À venir)**[/color]
 4. Étude de traffic routier [color=#FF2B0D]**(À venir)**[/color]
