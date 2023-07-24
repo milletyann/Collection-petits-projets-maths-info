@@ -2,12 +2,12 @@
 
 Ce dépôt recense un certain nombre de petits projets qui ne méritent pas leur propre dépôt. Ils sont principalement issus de sujets de concours (Informatique en prépa MP) mais aussi d'implémentation personnelle ayant servi de mise en pratique de cours que j'ai suivis. Ce dépôt voit le jour car je trie et nettoie mes anciens codes, voici une liste des projets que j'ai traité ainsi que leur avancement quant à leur arrivée sur ce dépôt (vous les trouverez dans les dossiers de même nom).
 
-1. Piles et récursivité <code style="background-color : green">**(Complet)**</code>
+1. Piles et récursivité <code style="color : green">**(Complet)**</code>
 2. Allocation dynamique de mémoire <code style="color : orange">**(En cours)**</code>
 3. Marches (concrète, stochastique, auto-évitante) et mouvement brownien <code style="color : red">**(À venir)**</code>
 4. Étude de traffic routier <code style="color : red">**(À venir)**</code>
 5. Mesure de houle <code style="color : red">**(À venir)**</code>
-6. Détection de collisions entre particules <code style="color : red">**(À venir)**</code>
+6. Détection de collisions entre particules $${\color{red}(À venir)}$$
 7. Modélisation de la propagation d'une épidémie <code style="color : red">**(À venir)**</code>
 8. Parcours d'un graphes <code style="color : red">**(À venir)**</code>
 9. Réseaux sociaux, partitions et coupe minimum <code style="color : orange">**(En cours)**</code>
