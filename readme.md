@@ -10,7 +10,7 @@ Ce dépôt recense un certain nombre de petits projets qui ne méritent pas leur
 6. Détection de collisions entre particules <code style="color : red">**(À venir)**</code>
 7. Modélisation de la propagation d'une épidémie <code style="color : red">**(À venir)**</code>
 8. Parcours d'un graphes <code style="color : red">**(À venir)**</code>
-9. Réseaux sociaux, partitions et coupe minimum <code style="color : orange">**(En cours)**</code>
+9. Réseaux sociaux, partitions et coupe minimum <code style="color : green">**(Complet)**</code>
 10. Analyse spectrale en astronomie <code style="color : red">**(À venir)**</code>
 11. Plus courts chemins dans les graphes valués <code style="color : red">**(À venir)**</code>
 12. Lancer de rayons en 3D <code style="color : red">**(À venir)**</code>
