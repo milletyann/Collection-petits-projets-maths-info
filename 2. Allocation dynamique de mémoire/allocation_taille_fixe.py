@@ -39,10 +39,8 @@ def reserver_taille_fixe(n, c):
 
         if est_libre(portion):
             marque_reservee(portion)
-            for j in range(n):
-                ecrire(portion, j, c)
-            for j in range(n, TAILLE_BLOC - 1):
-                ecrire(portion, j, 0)
+            initialiser(portion, n, c)
+            initialiser(portion + n, TAILLE_BLOC - 1 - n, 0)
 
             if not portion < mem[0]:
                 mem[0] += TAILLE_BLOC

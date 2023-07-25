@@ -5,23 +5,18 @@ from utils import *
 # naïf car on ne peut pas implémenter de libération de mémoire
 
 
-def initialiser_naive(p, n, c):
-    # initialise la portion p de taille n avec des caractères c
-    for i in range(n):
-        ecrire(p, i, c)
-    mem[0] += n
-
-
 def reserver_naive(n, c):
     if TAILLE_MEM < n + mem[0]:
         return None
-    initialiser_naive(mem[0], n, c)
+    initialiser(mem[0], n, c)
+    mem[0] += n
     return mem[0]
 
 
 mem = demarrage_init()
 print(mem)
-initialiser_naive(mem[0], 2, "w")
+initialiser(mem[0], 2, "w")
+mem[0] += 2
 print(mem)
 reserver_naive(2, "z")
 print(mem)

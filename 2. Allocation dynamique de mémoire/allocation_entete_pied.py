@@ -68,18 +68,14 @@ def reserver(n, c):
             # ce qu'il reste dans la portion libre (au - 3 cases libres)
             if n <= t - 3:
                 marque_reservee(p, n)
-                for i in range(n):
-                    ecrire(p, i, c)
+                initialiser(p, n, c)
 
                 p += n + 2
                 marque_libre(p, t - n - 2)
             else:
                 marque_reservee(p, t)
-                for i in range(n):
-                    ecrire(p, i, c)
-
-                for i in range(n, t):
-                    ecrire(p, i, 0)
+                initialiser(p, n, c)
+                initialiser(p + n, t - n, 0)
 
             return p
 
@@ -96,11 +92,8 @@ def reserver(n, c):
     marque_reservee(p, t_portion)
     ecrire_position_epilogue(p + t_portion + 2)
 
-    ecrire(lire_position_epilogue(), 0, 1)
-    ecrire(lire_position_epilogue(), -1, 1)
-
-    for i in range(n):
-        ecrire(p, i, c)
+    initialiser(lire_position_epilogue() - 1, 2, 1)
+    initialiser(p, n, c)
 
     return p
 
@@ -112,7 +105,7 @@ def liberer(p):
         p_tmp += lire_taille(p_tmp) + 2
         if p_tmp > p:
             # on a dépassé p sans y passer donc p n'est pas un début de portion
-            return "p n'est pas un début de portion valable"
+            return
 
     # libérer la portion: modif entete et pdp
     t_p = lire_taille(p)
@@ -133,12 +126,11 @@ def liberer(p):
     # si la portion suivante est l'épilogue, on le rapproche
     if lire_position_epilogue() == p + lire_taille(p) + 2:
         ecrire_position_epilogue(p)
-        ecrire(p, 0, 1)
-        ecrire(p, -1, 1)
-        for i in range(1, TAILLE_MEM - p):
-            ecrire(p, i, 0)
+        initialiser(p - 1, 2, 1)
 
-    return "portion {} libérée".format(p)
+        initialiser(p + 1, TAILLE_MEM - p - 1, 0)
+
+    return
 
 
 mem = demarrage_entete()
@@ -148,14 +140,13 @@ print(mem)
 reserver(3, "A")
 print(mem)
 reserver(2, "g")
-print(mem)
 # la mémoire est trop petite pour cette allocation donc ça n'alloue pas
 reserver(14, "u")
 print()
 print(mem)
-print(liberer(18))
+liberer(18)
 print(mem)
-print(liberer(4))
+liberer(4)
 print(mem)
-print(liberer(12))
+liberer(12)
 print(mem)
