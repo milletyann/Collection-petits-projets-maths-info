@@ -65,7 +65,7 @@ def reserver(n, c):
         t = lire_taille(p)
         if est_libre(p) and (t >= n):
             # 2 cas: y'a la place ou pas pour faire une nouvelle section vide avec
-            # ce qu'il reste dans la portion libre (au - 3 cases libres)
+            # ce qu'il reste dans la portion libre (au - 4 cases libres)
             if n <= t - 3:
                 marque_reservee(p, n)
                 initialiser(p, n, c)
@@ -92,6 +92,7 @@ def reserver(n, c):
     marque_reservee(p, t_portion)
     ecrire_position_epilogue(p + t_portion + 2)
 
+    # écrire les données dans la mémoire
     initialiser(lire_position_epilogue() - 1, 2, 1)
     initialiser(p, n, c)
 
@@ -105,7 +106,7 @@ def liberer(p):
         p_tmp += lire_taille(p_tmp) + 2
         if p_tmp > p:
             # on a dépassé p sans y passer donc p n'est pas un début de portion
-            return
+            return None
 
     # libérer la portion: modif entete et pdp
     t_p = lire_taille(p)
@@ -133,7 +134,7 @@ def liberer(p):
     return
 
 
-mem = demarrage_entete()
+"""mem = demarrage_entete()
 print(mem)
 reserver(6, "z")
 print(mem)
@@ -150,3 +151,4 @@ liberer(4)
 print(mem)
 liberer(12)
 print(mem)
+"""
